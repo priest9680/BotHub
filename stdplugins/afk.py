@@ -106,10 +106,10 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"USER IS OFFLINE NOW.\n\n " + \
-            f"\n\n__Reason:__ {reason}\n **sTaS AFKer**" \
+        message_to_reply = f"USER IS OFFLINE NOW!!!\n " + \
+            f"\n__Reason:__ {reason}\n **sTaS AFKer**" \
             if reason \
-            else f"AFK without any reason.....\n\n**sTaS AFKer**\n\n[WAIT...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg)"
+            else f"AFK without any reason.....\n\n**sTaS AFKer**\n\n[WAIT...]"
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in borg.storage.last_afk_message:  # pylint:disable=E0602

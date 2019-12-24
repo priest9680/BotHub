@@ -20,7 +20,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-            reason=event.pattern_match.group(1)
+    reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 1/3"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -46,7 +46,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-            reason=event.pattern_match.group(1)
+    reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 2/3\n Be careful!"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -71,7 +71,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-            reason=event.pattern_match.group(1)
+    reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 3/3\n Be carefull"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -97,7 +97,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-            reason=event.pattern_match.group(1)
+    reason=event.pattern_match.group(1)
     mentions = "Warnings resetted.\nWarnings: 0/3"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -123,7 +123,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-            reason=event.pattern_match.group(1)
+    reason=event.pattern_match.group(1)
     mentions = "{first_name} has been gbanned!\nReason: {reason}\n"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):

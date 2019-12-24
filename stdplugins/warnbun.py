@@ -20,8 +20,6 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-        if first_name is not None:
-        first_name = first_name.replace("\u2060", "")
             reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 1/3"
     chat = await event.get_input_chat()
@@ -44,12 +42,11 @@ from uniborg.util import admin_cmd
 
 @borg.on(util.admin_cmd(pattern="warn2 ?(.*)"))
 async def _(event):
-    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
+    replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-        if first_name is not None:
-        first_name = first_name.replace("\u2060", "")
+            reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 2/3\n Be careful!"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -70,12 +67,11 @@ from uniborg.util import admin_cmd
 
 @borg.on(util.admin_cmd(pattern="warn3 ?(.*)"))
 async def _(event):
-    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
+    replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-        if first_name is not None:
-        first_name = first_name.replace("\u2060", "")
+            reason=event.pattern_match.group(1)
     mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 3/3\n Be carefull"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -97,12 +93,11 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="warn0"))
 async def _(event):
-    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
+    replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-        if first_name is not None:
-        first_name = first_name.replace("\u2060", "")
+            reason=event.pattern_match.group(1)
     mentions = "Warnings resetted.\nWarnings: 0/3"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -124,12 +119,11 @@ from uniborg.util import admin_cmd
 
 @borg.on(util.admin_cmd(pattern="gbun ?(.*)"))
 async def _(event):
-    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
+    replied_user, error_i_a = await get_full_user(event)
     first_name = html.escape(replied_user.user.first_name)
-        if first_name is not None:
-        first_name = first_name.replace("\u2060", "")
+            reason=event.pattern_match.group(1)
     mentions = "{first_name} has been gbanned!\nReason: {reason}\n"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):

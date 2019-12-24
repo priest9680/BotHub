@@ -14,7 +14,7 @@ from telethon.tl.types import MessageEntityMentionName
 from uniborg.util import admin_cmd
 
 
-@borg.on(util.admin_cmd(pattern="warn1 ?(.*)"))
+@borg.on(admin_cmd(pattern="warn1 ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -40,7 +40,7 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 
-@borg.on(util.admin_cmd(pattern="warn2 ?(.*)"))
+@borg.on(admin_cmd(pattern="warn2 ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -65,7 +65,7 @@ from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
-@borg.on(util.admin_cmd(pattern="warn3 ?(.*)"))
+@borg.on(admin_cmd(pattern="warn3 ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -117,7 +117,7 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 
-@borg.on(util.admin_cmd(pattern="gbun ?(.*)"))
+@borg.on(admin_cmd(pattern="gbun ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

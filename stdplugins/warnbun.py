@@ -7,16 +7,22 @@
 .fw
 .ocb"""
 import asyncio
+import html
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
+from telethon.tl.types import MessageEntityMentionName
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("warn1"))
+@borg.on(util.admin_cmd(pattern="warn1 ?(.*)"))
 async def _(event):
+    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
-    mentions = "__You Have__  **1/3**  __warnings...__\n**Watch out!....**\n**Reason for warn:** __Porn Demand__"
+    first_name = html.escape(replied_user.user.first_name)
+        if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 1/3"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
@@ -35,11 +41,41 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("warn2"))
+@borg.on(util.admin_cmd(pattern="warn2 ?(.*)"))
 async def _(event):
+    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
-    mentions = "__You Have__  **2/3**  __warnings...__\n**Watch out!....**\n**Reason for warn:** __Porn Demand__"
+    first_name = html.escape(replied_user.user.first_name)
+        if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 2/3\n Be careful!"
+    chat = await event.get_input_chat()
+    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
+        mentions += f""
+    reply_message = None
+    if event.reply_to_msg_id:
+        reply_message = await event.get_reply_message()
+        await reply_message.reply(mentions)
+    else:
+        await event.reply(mentions)
+    await event.delete()
+
+""".admin Plugin for @UniBorg"""
+import asyncio
+from telethon import events
+from telethon.tl.types import ChannelParticipantsAdmins
+from uniborg.util import admin_cmd
+
+@borg.on(util.admin_cmd(pattern="warn3 ?(.*)"))
+async def _(event):
+    reason=event.pattern_match.group(1)
+    if event.fwd_from:
+        return
+    first_name = html.escape(replied_user.user.first_name)
+        if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    mentions = "{first_name} has been warned!\nReason: {reason}\nWarnings: 3/3\n Be carefull"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
@@ -58,11 +94,15 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("warn3"))
+@borg.on(admin_cmd(pattern="warn0"))
 async def _(event):
+    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
-    mentions = "__You Have__  **3/3**  __warnings...__\n**Watch out!....**\n**Reason for warn:** __Porn Demand__"
+    first_name = html.escape(replied_user.user.first_name)
+        if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    mentions = "Warnings resetted.\nWarnings: 0/3"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
@@ -81,34 +121,15 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("warn0"))
+@borg.on(util.admin_cmd(pattern="gbun ?(.*)"))
 async def _(event):
+    reason=event.pattern_match.group(1)
     if event.fwd_from:
         return
-    mentions = "**Warning Resetted By Admin...**\n__You Have__  **0/3**  __warnings__"
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
-
-""".admin Plugin for @UniBorg"""
-import asyncio
-from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins
-from uniborg.util import admin_cmd
-
-
-@borg.on(admin_cmd("gbun"))
-async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "__Warning!! User__ 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 __By Admin...__\n**Reason:** __Potential Porn Addict.__"
+    first_name = html.escape(replied_user.user.first_name)
+        if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    mentions = "{first_name} has been gbanned!\nReason: {reason}\n"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
